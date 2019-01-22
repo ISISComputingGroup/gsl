@@ -1,0 +1,10 @@
+.PHONY: install uninstall clean
+
+install:
+	$(MAKE) -C EPICS $(MAKECMDGOALS)
+
+uninstall:
+	$(MAKE) -C EPICS $(MAKECMDGOALS)
+
+clean:
+	$(MAKE) -C EPICS $(MAKECMDGOALS)
