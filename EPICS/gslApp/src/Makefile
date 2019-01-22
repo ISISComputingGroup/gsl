@@ -50,21 +50,12 @@ install:
 	-$(MKDIR) $(GSL)/include
 	-$(MKDIR) $(GSL)/include/gsl
 	$(CP) -f $(GSL_INSTALL)/include/gsl/*.h* $(GSL)/include/gsl/
+ifeq ($(findstring linux,$(EPICS_HOST_ARCH)),)
 	$(CP) -f $(GSL_INSTALL)/bin/*.dll $(GSL)/bin/$(EPICS_HOST_ARCH)/
 	$(CP) -f $(GSL_INSTALL)/lib/*.lib $(GSL)/lib/$(EPICS_HOST_ARCH)/
-# this directory (on windows) causes cp from lib to fail
-#	-$(RMDIR) $(MYSQL_DIR)/lib/debug
-#ifeq ($(findstring linux,$(EPICS_HOST_ARCH)),)
-# dlls and pdbs need to be in bin not lib (and leaving copy in lib causes link errors)
-#	$(CP) -f $(GSL_DIR)/lib/* $(TOP)/lib/$(EPICS_HOST_ARCH)/
-#	$(CP) -f $(GSL_DIR)/lib/*.dll $(TOP)/bin/$(EPICS_HOST_ARCH)/
-#	$(CP) -f $(GSL_DIR)/lib/*.pdb $(TOP)/bin/$(EPICS_HOST_ARCH)/
-#	$(RM) -f $(TOP)/lib/$(EPICS_HOST_ARCH)/*.dll
-#	$(RM) -f $(TOP)/lib/$(EPICS_HOST_ARCH)/*.pdb
-#else
-#	if test -d $(GSL_DIR)/lib; then find $(GSL_DIR)/lib \( -type f -o -type l \) -exec $(CP) {} $(TOP)/lib/$(EPICS_HOST_ARCH)/ \; ; fi
-#	if test -d $(GSL_DIR)/lib64; then find $(GSL_DIR)/lib64 \( -type f -o -type l \) -exec $(CP) {} $(TOP)/lib/$(EPICS_HOST_ARCH)/ \; ; fi
-#endif
+else
+	$(CP) -f $(GSL_INSTALL)/lib/*.a $(GSL)/lib/$(EPICS_HOST_ARCH)/
+endif
 endif
 
 #clean::
@@ -73,3 +64,4 @@ endif
 #
 #uninstall:
 #	$(RMDIR) $(MYSQL_DIR)
+#
