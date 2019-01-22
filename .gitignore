@@ -6,3 +6,5 @@ gsl.def
 /bin/
 /lib/
 /include/
+/EPICS/**/O.*
+/EPICS/install/
