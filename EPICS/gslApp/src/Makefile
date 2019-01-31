@@ -10,6 +10,8 @@ VS_VERS=$(filter %.0,$(subst \, ,$(VSINSTALLDIR)))
 endif
 VS_MAJOR=$(word 1,$(subst ., ,$(VS_VERS)))
 
+CMAKE ?= cmake
+
 GSL_INSTALL=$(TOP)/install/$(EPICS_HOST_ARCH)
 #CMAKE_CONFIG_FLAGS=-DBOOST_ROOT:STRING=$(EPICS_ROOT)/libraries/master/boost -DGSL_INSTALL_MULTI_CONFIG=ON
 CMAKE_BUILD_FLAGS=
@@ -41,8 +43,8 @@ include $(TOP)/configure/RULES
 
 ifdef T_A
 install:
-	cmake $(GSL) -G "$(CMAKE_GENERATOR)" -DCMAKE_INSTALL_PREFIX:PATH="$(GSL_INSTALL)" $(CMAKE_CONFIG_FLAGS)
-	cmake --build . --target install --config $(CMAKE_CONFIG) $(CMAKE_BUILD_FLAGS)
+	$(CMAKE) $(GSL) -G "$(CMAKE_GENERATOR)" -DCMAKE_INSTALL_PREFIX:PATH="$(GSL_INSTALL)" $(CMAKE_CONFIG_FLAGS)
+	$(CMAKE) --build . --target install --config $(CMAKE_CONFIG) $(CMAKE_BUILD_FLAGS)
 	-$(MKDIR) $(GSL)/bin
 	-$(MKDIR) $(GSL)/bin/$(EPICS_HOST_ARCH)
 	-$(MKDIR) $(GSL)/lib
