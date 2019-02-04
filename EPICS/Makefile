@@ -25,6 +25,9 @@ $(foreach dir, $(filter %Top, $(DIRS)), \
 
 # iocBoot depends on all *App dirs
 iocBoot_DEPEND_DIRS += $(filter %App,$(DIRS))
+gslTestApp_DEPEND_DIRS += gslApp
+
+UNINSTALL_DIRS += $(TOP)/install
 
 # Add any additional dependency rules here:
 

@@ -8,3 +8,4 @@ gsl.def
 /include/
 /EPICS/**/O.*
 /EPICS/install/
+/EPICS/bin/
