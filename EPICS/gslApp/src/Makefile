@@ -59,7 +59,8 @@ ifeq ($(findstring linux,$(EPICS_HOST_ARCH)),)
 	$(CP) -f $(GSL_INSTALL)/bin/*.dll $(GSL)/bin/$(EPICS_HOST_ARCH)/
 	$(CP) -f $(GSL_INSTALL)/lib/*.lib $(GSL)/lib/$(EPICS_HOST_ARCH)/
 else
-	$(CP) -f $(GSL_INSTALL)/lib/*.a $(GSL)/lib/$(EPICS_HOST_ARCH)/
+	-$(CP) -f $(GSL_INSTALL)/lib/*.a $(GSL)/lib/$(EPICS_HOST_ARCH)/
+	-$(CP) -f $(GSL_INSTALL)/lib/*.so $(GSL)/lib/$(EPICS_HOST_ARCH)/
 endif
 endif
 
