@@ -4,7 +4,7 @@
 #include <epicsExport.h>
 #include <errlog.h>
 #include <menuFtype.h>
-#include <fit/gsl_fit.h>
+#include <gsl/gsl_fit.h>
 
 /**
  * aSub wrapper around gsl_fit_linear.

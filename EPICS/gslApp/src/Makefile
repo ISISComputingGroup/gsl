@@ -41,14 +41,6 @@ CMAKE_CONFIG=RelWithDebInfo
 endif
 
 
-LIBRARY_IOC += gslSupport
-DBD += gsl.dbd
-
-gslSupport_SRCS += line_of_best_fit.c
-gslSupport_LIBS += $(EPICS_BASE_IOC_LIBS)
-gslSupport_LIBS += gsl
-
-
 include $(TOP)/configure/RULES
 #----------------------------------------
 #  ADD RULES AFTER THIS LINE
