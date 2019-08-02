@@ -9,3 +9,4 @@ gsl.def
 /EPICS/**/O.*
 /EPICS/install/
 /EPICS/bin/
+/EPICS/lib/

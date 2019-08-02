@@ -51,4 +51,6 @@ ZLIB=$(SUPPORT)/zlib/master
 include $(TOP)/../../../../ISIS_CONFIG
 -include $(TOP)/../../../../ISIS_CONFIG.$(EPICS_HOST_ARCH)
 
+GSL=$(SUPPORT)/gsl/master
+
 # IOC-specific support module
