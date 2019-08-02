@@ -21,7 +21,7 @@
  *   VALC - variance-covariance matrix parameter c00
  *   VALD - variance-covariance matrix parameter c01
  *   VALE - variance-covariance matrix parameter c11
- *   VALF - The weighted sum of squares of the residuals from the best-fit line (chi-squared)
+ *   VALF - The sum of squares of the residuals from the best-fit line
  */
 static long line_of_best_fit(aSubRecord *prec)
 {
